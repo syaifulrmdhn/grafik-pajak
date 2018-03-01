@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+</head>
+<body>
+<div id="grafik4" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<script type="text/javascript">
+	
+Highcharts.chart('grafik4', {
+    chart: {
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Penerimaan Pajak'
+    },
+    subtitle: {
+        text: 'Source: '
+    },
+    xAxis: [{
+        categories: ['2011', '2012', '2013', '2014', '2015', '2016', '2017','APBN 2018'],
+        crosshair: true
+    }],
+    yAxis: [{ // Primary yAxis
+        labels: {
+            format: '{value}%',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        },
+        title: {
+            text: 'Pertumbuhan (%)',
+            style: {
+                color: Highcharts.getOptions().colors[6]
+            }
+        }
+    }, { // Secondary yAxis
+        title: {
+            text: 'Realisasi Penerimaan Pajak',
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+        labels: {
+            format: '{value}Triliun Rp',
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+        opposite: true
+    }],
+    tooltip: {
+        shared: true
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'left',
+        x: 120,
+        verticalAlign: 'top',
+        y: 100,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    series: [{
+        name: 'Target pajak APBN-P (Triliun Rp)',
+        type: 'column',
+        yAxis: 1,
+        data: [743,835.9,921.3,985.1,1060.84,1106,1151.1,1424
+],
+        tooltip: {
+            valueSuffix: ' Triliun Rp'
+        }
+
+    }, {
+        name: '% Realisasi thd APBN-P',
+        type: 'spline',
+        data: [19.65,12.50,10.22,6.92,7.69,4.26,3.75,23.71
+],
+        tooltip: {
+            valueSuffix: '%'
+        }
+    }]
+});
+</script>
+</body>
+</html>
